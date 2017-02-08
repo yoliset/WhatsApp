@@ -12,17 +12,17 @@ function Chat(_nombre, _imagen)
 }
 
 var dataListaChats = [
-	new Chat("chat 1", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 2", 'image/logocodeacademy.png'),
-	new Chat("chat 3", 'image/logocodeacademy.png')
+	new Chat("Cinthia", 'image/cinthia.jpg'),
+	new Chat("Anthony", 'image/antho.jpg'),
+	new Chat("Zare", 'image/zare.png'),
+	new Chat("Susan", 'image/susan.jpg'),
+	new Chat("Patricia", 'image/paty.jpg'),
+	new Chat("Cesar", 'image/cesar.png'),
+	new Chat("Lucila", 'image/lucila.png'),
+	new Chat("Alfredo", 'image/alfre.jpg'),
+	new Chat("Coral", 'image/coral.jpg'),
+	new Chat("Pablo", 'image/pablo.jpg'),
+	new Chat("Caleb", 'image/caleb.png')
 ];
 
 
@@ -138,4 +138,22 @@ function actualizarCabeceraChat(_contactName, _imageURL, _estado) {
 	chatHeader.getElementsByClassName('w-contact-name')[0].innerHTML = _contactName;
 	chatHeader.getElementsByClassName('w-users-messages')[0].innerHTML = _estado;
 	chatHeader.getElementsByTagName('img')[0].src = _imageURL;
+}
+
+//function to filter contacts
+function filterContacts() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("search_input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("lista-chats");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        h4 = li[i].getElementsByTagName("h4")[0];
+        if (h4.innerHTML.toUpperCase().indexOf(filter) === 0) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
 }
